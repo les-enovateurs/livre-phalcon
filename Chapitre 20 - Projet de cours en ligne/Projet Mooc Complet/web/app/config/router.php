@@ -34,4 +34,4 @@ $router->add('/cours/supprimer/{id:[0-9]+}', [
     'action'     => 'supprimer',
 ])->setName('supprimer_cours');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

@@ -3,12 +3,12 @@
 use Lcobucci\JWT\Parser;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 use Phalcon\Mvc\Dispatcher;
 
 use Lcobucci\JWT\Builder;
 
-class SecurityPlugin extends Plugin
+class SecurityPlugin extends Injectable
 {
     const CODE_ERREUR_APPLICATIF   = 508;
     const CODE_ERREUR_SERVEUR      = 500;

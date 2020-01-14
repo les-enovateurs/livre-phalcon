@@ -1,11 +1,8 @@
 <?php
 
-use Phalcon\Mvc\View;
 use HelloWorld\Models\Utilisateurs;
-
 use Phalcon\Db\Column;
-use Phalcon\Db;
-use Phalcon\Mvc\Model\Resultset\Simple as Resultset;
+use Phalcon\Db\Enum;
 
 class BddController extends ControllerBase
 {
@@ -69,15 +66,15 @@ class BddController extends ControllerBase
         $sSql      = 'SELECT id, prenom, nom, email FROM utilisateurs ORDER BY prenom';
         $oResultat = $this->db->query($sSql);
 
-        $oResultat->setFetchMode(Phalcon\Db::FETCH_NUM);
+        $oResultat->setFetchMode(Enum::FETCH_NUM);
 
         $this->view->recuperation_numero = $oResultat->fetchAll();
 
-        $this->view->recuperation_associative = $this->db->fetchAll($sSql, Db::FETCH_ASSOC);
+        $this->view->recuperation_associative = $this->db->fetchAll($sSql, Enum::FETCH_ASSOC);
 
-        $this->view->recuperation_associative_numero = $this->db->fetchAll($sSql, Db::FETCH_BOTH);
+        $this->view->recuperation_associative_numero = $this->db->fetchAll($sSql, Enum::FETCH_BOTH);
 
-        $this->view->recuperation_objet = $this->db->fetchAll($sSql, Db::FETCH_OBJ);
+        $this->view->recuperation_objet = $this->db->fetchAll($sSql, Enum::FETCH_OBJ);
     }
 
     public function requeteAvecParametreAction()
@@ -92,7 +89,7 @@ class BddController extends ControllerBase
 
         $sSql = 'SELECT id, prenom, nom, email FROM utilisateurs where prenom = :prenom and id > :id order by prenom';
 
-        $this->view->requete_parametre_par_nom = $this->db->fetchAll($sSql, Db::FETCH_ASSOC, [
+        $this->view->requete_parametre_par_nom = $this->db->fetchAll($sSql, Enum::FETCH_ASSOC, [
             'prenom' => 'Damien',
             'id'     => 2
         ]);
@@ -138,7 +135,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                     = 'SELECT * FROM utilisateurs ORDER BY id DESC';
-            $this->view->nouvel_utilisateur = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->nouvel_utilisateur = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ);
         }
 
         $sSqlInsertion = 'INSERT INTO utilisateurs(nom,prenom,email,mot_de_passe) VALUES (:nom, :prenom, :email, :mot_de_passe)';
@@ -154,7 +151,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                                   = 'SELECT * FROM utilisateurs ORDER BY id DESC';
-            $this->view->nouvel_utilisateur_nom_parametre = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->nouvel_utilisateur_nom_parametre = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ);
         }
 
         $bResultat = $this->db->insert(
@@ -172,7 +169,7 @@ class BddController extends ControllerBase
         );
         if (true === $bResultat) {
             $sSqlSelect                                       = 'SELECT * FROM utilisateurs ORDER BY id DESC';
-            $this->view->nouvel_utilisateur_requete_dynamique = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->nouvel_utilisateur_requete_dynamique = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ);
         }
 
         $bResultat = $this->db->insertAsDict(
@@ -185,14 +182,14 @@ class BddController extends ControllerBase
         );
         if (true === $bResultat) {
             $sSqlSelect                                                   = 'SELECT * FROM utilisateurs ORDER BY id DESC';
-            $this->view->nouvel_utilisateur_requete_dynamique_par_tableau = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->nouvel_utilisateur_requete_dynamique_par_tableau = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ);
         }
     }
 
     public function miseAjourDeDonneesAction()
     {
         $sSqlSelect                        = 'SELECT * FROM utilisateurs WHERE id = :id';
-        $this->view->utilisateur_reference = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+        $this->view->utilisateur_reference = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
 
         $sSqlMAJ   = 'UPDATE utilisateurs SET prenom = ? WHERE id = ?';
         $bResultat = $this->db->execute(
@@ -205,7 +202,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                  = 'SELECT * FROM utilisateurs WHERE id = :id';
-            $this->view->utilisateur_maj = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+            $this->view->utilisateur_maj = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
         }
 
         $sSqlMAJ   = 'UPDATE utilisateurs SET prenom = :prenom WHERE id = :id';
@@ -219,7 +216,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                                = 'SELECT * FROM utilisateurs WHERE id = :id';
-            $this->view->maj_utilisateur_nom_parametre = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+            $this->view->maj_utilisateur_nom_parametre = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
         }
 
         $bResultat = $this->db->update(
@@ -235,7 +232,7 @@ class BddController extends ControllerBase
         
         if (true === $bResultat) {
             $sSqlSelect                         = 'SELECT * FROM utilisateurs WHERE id = :id';
-            $this->view->maj_utilisateur_simple = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+            $this->view->maj_utilisateur_simple = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
         }
 
         $bResultat = $this->db->update(
@@ -254,7 +251,7 @@ class BddController extends ControllerBase
         );
         if (true === $bResultat) {
             $sSqlSelect                                         = 'SELECT * FROM utilisateurs WHERE id = :id';
-            $this->view->maj_utilisateur_simple_condition_param = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+            $this->view->maj_utilisateur_simple_condition_param = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
         }
 
         $bResultat = $this->db->updateAsDict(
@@ -266,7 +263,7 @@ class BddController extends ControllerBase
         );
         if (true === $bResultat) {
             $sSqlSelect                          = 'SELECT * FROM utilisateurs WHERE id = :id';
-            $this->view->maj_utilisateur_tableau = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+            $this->view->maj_utilisateur_tableau = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
         }
 
         $bResultat = $this->db->updateAsDict(
@@ -282,14 +279,14 @@ class BddController extends ControllerBase
         );
         if (true === $bResultat) {
             $sSqlSelect                                          = 'SELECT * FROM utilisateurs WHERE id = :id';
-            $this->view->maj_utilisateur_tableau_condition_param = $this->db->fetchOne($sSqlSelect, Db::FETCH_OBJ, [ 'id' => 1 ]);
+            $this->view->maj_utilisateur_tableau_condition_param = $this->db->fetchOne($sSqlSelect, Enum::FETCH_OBJ, [ 'id' => 1 ]);
         }
     }
 
     public function suppressionDeDonneesAction()
     {
         $sSqlSelect                  = 'SELECT * FROM utilisateurs ORDER BY id ASC LIMIT 3';
-        $this->view->ref_utilisateur = $this->db->fetchAll($sSqlSelect, Db::FETCH_OBJ);
+        $this->view->ref_utilisateur = $this->db->fetchAll($sSqlSelect, Enum::FETCH_OBJ);
 
         $sSqlSuppression = 'DELETE FROM utilisateurs WHERE id = ?';
         $bResultat       = $this->db->execute(
@@ -301,7 +298,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                                    = 'SELECT * FROM utilisateurs ORDER BY id ASC LIMIT 3';
-            $this->view->utilisateur_liste_apres_supprimer = $this->db->fetchAll($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->utilisateur_liste_apres_supprimer = $this->db->fetchAll($sSqlSelect, Enum::FETCH_OBJ);
         }
 
         $sSqlSuppression = 'DELETE FROM utilisateurs WHERE id = :id';
@@ -314,7 +311,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                                              = 'SELECT * FROM utilisateurs ORDER BY id ASC LIMIT 3';
-            $this->view->utilisateur_liste_apres_supprimer_nom_param = $this->db->fetchAll($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->utilisateur_liste_apres_supprimer_nom_param = $this->db->fetchAll($sSqlSelect, Enum::FETCH_OBJ);
         }
 
         $bResultat = $this->db->delete(
@@ -327,7 +324,7 @@ class BddController extends ControllerBase
 
         if (true === $bResultat) {
             $sSqlSelect                                                  = 'SELECT * FROM utilisateurs ORDER BY id ASC LIMIT 3';
-            $this->view->utilisateur_liste_apres_supprimer_avec_fonction = $this->db->fetchAll($sSqlSelect, Db::FETCH_OBJ);
+            $this->view->utilisateur_liste_apres_supprimer_avec_fonction = $this->db->fetchAll($sSqlSelect, Enum::FETCH_OBJ);
         }
 
     }

@@ -71,7 +71,7 @@ class Utilisateurs extends \Phalcon\Mvc\Model
         return $this->validate($validator);
     }
 
-    public function getMessages($sFiltre = null)
+    public function getMessages($sFiltre = null): array
     {
         $aMessages = [];
 
@@ -106,22 +106,12 @@ class Utilisateurs extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns table name mapped in the model.
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return 'utilisateurs';
-    }
-
-    /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
      * @return Utilisateurs[]|Utilisateurs|\Phalcon\Mvc\Model\ResultSetInterface
      */
-    public static function find($parameters = null)
+    public static function find($parameters = null): \Phalcon\Mvc\Model\ResultsetInterface
     {
         return parent::find($parameters);
     }

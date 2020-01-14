@@ -12,4 +12,4 @@ $router->add(
 );
 
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

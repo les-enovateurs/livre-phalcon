@@ -1,6 +1,6 @@
 <?php
 
-use Phalcon\Acl;
+use Phalcon\Acl\Enum as AclEnum;
 
 use HelloWorld\Models\Utilisateurs;
 
@@ -49,9 +49,9 @@ class IndexController extends ControllerBase
     public function fonctionVerificationAvanceAction()
     {
         $oAclExemple = new Phalcon\Acl\Adapter\Memory();
-        $oAclExemple->setDefaultAction(Acl::DENY);
+        $oAclExemple->setDefaultAction(AclEnum::DENY);
         $oAclExemple->addRole(new Phalcon\Acl\Role('membre'));
-        $oAclExemple->addResource(new Phalcon\Acl\Resource('groupe'), 'ajouter');
+        $oAclExemple->addComponent(new Phalcon\Acl\Component('groupe'), 'ajouter');
         $oAclExemple->allow(
             'membre',
             'groupe',
@@ -89,7 +89,7 @@ class IndexController extends ControllerBase
     public function heritageRoleAction()
     {
         $oAclExemple = new Phalcon\Acl\Adapter\Memory();
-        $oAclExemple->setDefaultAction(Acl::DENY);
+        $oAclExemple->setDefaultAction(AclEnum::DENY);
 
         $oRoleMembre = new Phalcon\Acl\Role('membre');
 
@@ -98,8 +98,8 @@ class IndexController extends ControllerBase
         //Le membre rôle hérite du rôle invité
         $oAclExemple->addRole($oRoleMembre, 'invite');
 
-        $oAclExemple->addResource(new Phalcon\Acl\Resource('groupe'), 'liste');
-        $oAclExemple->addResource(new Phalcon\Acl\Resource('groupe'), 'ajouter');
+        $oAclExemple->addComponent(new Phalcon\Acl\Component('groupe'), 'liste');
+        $oAclExemple->addComponent(new Phalcon\Acl\Component('groupe'), 'ajouter');
         $oAclExemple->allow(
             'invite',
             'groupe',
@@ -142,8 +142,8 @@ class IndexController extends ControllerBase
 
         $oAclExemple->addInherit('administrateur', 'stagiaire');
 
-        $oAclExemple->addResource(new Phalcon\Acl\Resource('dossier'), 'liste');
-        $oAclExemple->addResource(new Phalcon\Acl\Resource('dossier'), 'ajouter');
+        $oAclExemple->addComponent(new Phalcon\Acl\Component('dossier'), 'liste');
+        $oAclExemple->addComponent(new Phalcon\Acl\Component('dossier'), 'ajouter');
 
         $oAclExemple->allow(
             'stagiaire',

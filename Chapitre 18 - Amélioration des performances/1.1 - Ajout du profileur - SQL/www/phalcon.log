@@ -1,23 +1,23 @@
-[Thu, 02 Jan 20 14:34:44 +0000][WARNING] Requête Pure
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] La requête SQL: SELECT id, nom, prenom, email, mot_de_passe FROM utilisateurs
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de début: 1577975684.6433
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de fin: 1577975684.6448
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Temps total: 0.0015599727630615
-[Thu, 02 Jan 20 14:34:44 +0000][WARNING] Requête avec le modèle
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] La requête SQL: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='utilisateurs'
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de début: 1577975684.6475
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de fin: 1577975684.6521
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Temps total: 0.0045680999755859
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] La requête SQL: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='utilisateurs' ORDER BY c.ordinal_position
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de début: 1577975684.6524
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de fin: 1577975684.667
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Temps total: 0.014567136764526
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] La requête SQL: SELECT "utilisateurs"."id", "utilisateurs"."nom", "utilisateurs"."prenom", "utilisateurs"."email", "utilisateurs"."mot_de_passe" FROM "public"."utilisateurs"
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de début: 1577975684.6677
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de fin: 1577975684.6681
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Temps total: 0.00040411949157715
-[Thu, 02 Jan 20 14:34:44 +0000][WARNING] Requête avec PhSql
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] La requête SQL: SELECT "utilisateurs"."id" AS "id", "utilisateurs"."nom" AS "nom", "utilisateurs"."prenom" AS "prenom", "utilisateurs"."email" AS "email", "utilisateurs"."mot_de_passe" AS "mot_de_passe" FROM "public"."utilisateurs"
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de début: 1577975684.6683
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Heure de fin: 1577975684.6686
-[Thu, 02 Jan 20 14:34:44 +0000][DEBUG] Temps total: 0.00024294853210449
+[2020-01-02T14:37:09+00:00][warning] Requête Pure
+[2020-01-02T14:37:09+00:00][debug] La requête SQL: SELECT id, nom, prenom, email, mot_de_passe FROM utilisateurs
+[2020-01-02T14:37:09+00:00][debug] Heure de début: 1577975829.8041
+[2020-01-02T14:37:09+00:00][debug] Heure de fin: 1577975829.8055
+[2020-01-02T14:37:09+00:00][debug] Temps total: 0.0013802051544189
+[2020-01-02T14:37:09+00:00][warning] Requête avec le modèle
+[2020-01-02T14:37:09+00:00][debug] La requête SQL: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='utilisateurs'
+[2020-01-02T14:37:09+00:00][debug] Heure de début: 1577975829.8315
+[2020-01-02T14:37:09+00:00][debug] Heure de fin: 1577975829.8367
+[2020-01-02T14:37:09+00:00][debug] Temps total: 0.0052731037139893
+[2020-01-02T14:37:09+00:00][debug] La requête SQL: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='utilisateurs' ORDER BY c.ordinal_position
+[2020-01-02T14:37:09+00:00][debug] Heure de début: 1577975829.8371
+[2020-01-02T14:37:09+00:00][debug] Heure de fin: 1577975829.852
+[2020-01-02T14:37:09+00:00][debug] Temps total: 0.014814138412476
+[2020-01-02T14:37:09+00:00][debug] La requête SQL: SELECT "utilisateurs"."id", "utilisateurs"."nom", "utilisateurs"."prenom", "utilisateurs"."email", "utilisateurs"."mot_de_passe" FROM "public"."utilisateurs"
+[2020-01-02T14:37:09+00:00][debug] Heure de début: 1577975829.8529
+[2020-01-02T14:37:09+00:00][debug] Heure de fin: 1577975829.8533
+[2020-01-02T14:37:09+00:00][debug] Temps total: 0.00034904479980469
+[2020-01-02T14:37:09+00:00][warning] Requête avec PhSql
+[2020-01-02T14:37:09+00:00][debug] La requête SQL: SELECT "utilisateurs"."id" AS "id", "utilisateurs"."nom" AS "nom", "utilisateurs"."prenom" AS "prenom", "utilisateurs"."email" AS "email", "utilisateurs"."mot_de_passe" AS "mot_de_passe" FROM "public"."utilisateurs"
+[2020-01-02T14:37:09+00:00][debug] Heure de début: 1577975829.8538
+[2020-01-02T14:37:09+00:00][debug] Heure de fin: 1577975829.8541
+[2020-01-02T14:37:09+00:00][debug] Temps total: 0.0003199577331543

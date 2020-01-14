@@ -17,4 +17,4 @@ $router->getMatchedRoute();
 
 echo "Contrôleur : ".$router->getControllerName()." Action : ".$router->getActionName();
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

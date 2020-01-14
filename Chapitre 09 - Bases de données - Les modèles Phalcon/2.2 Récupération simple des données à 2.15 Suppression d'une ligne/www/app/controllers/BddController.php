@@ -240,12 +240,18 @@ class BddController extends ControllerBase
 
         $oUtilisateurTableau = new Utilisateurs();
 
-        $oUtilisateurTableau->save([
-            'prenom'       => 'Olivia',
-            'email'        => 'olivia.doe_'.uniqid().'@les-enovateurs.com',
-            'mot_de_passe' => 'azerty',
-            'fonction'     => 'DPO'
-        ]);
+        $oUtilisateur = new Utilisateurs();
+            
+        $oUtilisateur->assign(
+            [
+                'prenom'       => 'Olivia',
+                'email'        => 'olivia.doe_'.uniqid().'@les-enovateurs.com',
+                'mot_de_passe' => 'azerty',
+                'fonction'     => 'DPO'
+            ]
+        );
+
+        $oUtilisateur->save();
 
         $aUtilisateurs = Utilisateurs::find([
             'limit' => 2,
@@ -284,8 +290,9 @@ class BddController extends ControllerBase
     {
         if (true === $this->request->isPost()) {
             $oUtilisateur = new Utilisateurs();
-            $oUtilisateur->save(
-                $this->request->getPost(),
+            
+            $oUtilisateur->assign(
+                $_POST,
                 [
                     'prenom',
                     'email',
@@ -293,6 +300,8 @@ class BddController extends ControllerBase
                     'fonction'
                 ]
             );
+
+            $oUtilisateur->save();       
         }
 
         $aUtilisateurs = Utilisateurs::find([
@@ -324,12 +333,16 @@ class BddController extends ControllerBase
 
         $oUtilisateurTableau = new Utilisateurs();
 
-        $oUtilisateurTableau->create([
-            'prenom'       => 'Catherine',
-            'email'        => 'catherine.doe'.uniqid().'@les-enovateurs.com',
-            'mot_de_passe' => 'azerty',
-            'fonction'     => 'Responsable'
-        ]);
+        $oUtilisateurTableau->assign(
+            [
+                'prenom'       => 'Catherine',
+                'email'        => 'catherine.doe'.uniqid().'@les-enovateurs.com',
+                'mot_de_passe' => 'azerty',
+                'fonction'     => 'Responsable'
+            ]
+        );
+
+        $oUtilisateurTableau->create();
 
         $aUtilisateurs = Utilisateurs::find([
             'limit' => 2,

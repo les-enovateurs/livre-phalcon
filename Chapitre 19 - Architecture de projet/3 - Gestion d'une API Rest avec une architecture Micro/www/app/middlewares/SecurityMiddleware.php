@@ -14,7 +14,8 @@ class SecurityMiddleware implements MiddlewareInterface
             '127.0.0.1',
             '192.168.99.100',
             '192.168.48.1',
-            '192.168.176.1',
+            '172.24.0.1',
+            '192.168.192.1',
             '::1'
         ];
 

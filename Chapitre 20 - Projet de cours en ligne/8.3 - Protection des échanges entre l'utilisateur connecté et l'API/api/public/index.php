@@ -44,8 +44,7 @@ try {
      */
     $application = new \Phalcon\Mvc\Application($di);
 
-    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
-
+echo $application->handle($_GET['_url'] ?? '/')->getContent();
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';
     echo '<pre>' . $e->getTraceAsString() . '</pre>';

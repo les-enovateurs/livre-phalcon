@@ -22,7 +22,8 @@ class CoursController extends ControllerBase
         $aCours['utilisateurs_id'] = $oUtilisateurConnecte->id;
 
         $oCours      = new Cours();
-        $bSauvegarde = $oCours->save($aCours);
+        $oCours->assign($aCours);
+        $bSauvegarde = $oCours->save();
 
         if (true == $bSauvegarde) {
             return [
@@ -87,7 +88,8 @@ class CoursController extends ControllerBase
         ]);
 
         if ($oCours instanceof Cours) {
-            $bSauvegarde = $oCours->save($aCours);
+            $oCours->assign($aCours);
+            $bSauvegarde = $oCours->save();
 
             if (true == $bSauvegarde) {
                 return [

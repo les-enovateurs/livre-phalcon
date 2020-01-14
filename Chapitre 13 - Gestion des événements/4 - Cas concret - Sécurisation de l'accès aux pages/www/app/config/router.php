@@ -18,4 +18,4 @@ $router->add('/tableauDeBord', [
     'action'     => 'tableauDeBord',
 ])->setName('tableau_de_bord');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

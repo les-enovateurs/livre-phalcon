@@ -3,9 +3,9 @@
 namespace HelloWorld\Plugins;
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 
-class ModelsPlugin extends Plugin
+class ModelsPlugin extends Injectable
 {
     public function prepareSave(Event $oEvent, $oModel)
     {

@@ -2,13 +2,13 @@
 
 namespace HelloWorld\Plugins;
 
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Events\Event;
 
 use HelloWorld\Models\Utilisateurs;
 
-class SecurityPlugin extends Plugin
+class SecurityPlugin extends Injectable
 {
     public function beforeExecuteRoute(Event $oEvent, Dispatcher $oDispatcher)
     {

@@ -18,4 +18,4 @@ $router->addGet('/api/utilisateur/cours', [
     'action'     => 'cours',
 ])->setName('cours_utilisateur');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

@@ -2,10 +2,11 @@
 
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
-use Phalcon\Mvc\Url as UrlResolver;
+use Phalcon\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
-use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Session\Manager as SessionManager;
+use Phalcon\Session\Adapter\Stream as SessionStream;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Events\Manager as EventsManager;
 
@@ -47,8 +48,8 @@ $di->setShared('view', function () {
             $volt = new VoltEngine($view, $this);
 
             $volt->setOptions([
-                'compiledPath'      => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'path'      => $config->application->cacheDir,
+                'separator' => '_'
             ]);
 
             return $volt;
@@ -108,10 +109,17 @@ $di->set('flash', function () {
  * Start the session the first time some component request the session service
  */
 $di->setShared('session', function () {
-    $session = new SessionAdapter();
-    $session->start();
+    $oSession = new SessionManager();
+    $oFiles = new SessionStream(
+        [
+            'savePath' => '/tmp',
+        ]
+    );
+    $oSession->setAdapter($oFiles);
+    
+    $oSession->start();
 
-    return $session;
+    return $oSession;
 });
 
 $di->set('dispatcher', function () use ($di) {
@@ -126,7 +134,13 @@ $di->set('dispatcher', function () use ($di) {
 });
 
 $di->setShared('logger', function () {
-    $oLogger = new \Phalcon\Logger\Adapter\File(BASE_PATH . '/phalcon.log');
+    $oAdapter = new Phalcon\Logger\Adapter\Stream(BASE_PATH.'/phalcon.log');
+    $oLogger  = new Phalcon\Logger(
+        'messages',
+        [
+            'main' => $oAdapter,
+        ]
+    );
 
     $oLogger->setLogLevel(Phalcon\Logger::ERROR);
 

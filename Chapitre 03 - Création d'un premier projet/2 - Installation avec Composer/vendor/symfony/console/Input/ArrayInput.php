@@ -39,8 +39,8 @@ class ArrayInput extends Input
      */
     public function getFirstArgument()
     {
-        foreach ($this->parameters as $key => $value) {
-            if ($key && '-' === $key[0]) {
+        foreach ($this->parameters as $param => $value) {
+            if ($param && \is_string($param) && '-' === $param[0]) {
                 continue;
             }
 
@@ -53,7 +53,7 @@ class ArrayInput extends Input
     /**
      * {@inheritdoc}
      */
-    public function hasParameterOption($values, $onlyParams = false)
+    public function hasParameterOption($values, bool $onlyParams = false)
     {
         $values = (array) $values;
 
@@ -77,7 +77,7 @@ class ArrayInput extends Input
     /**
      * {@inheritdoc}
      */
-    public function getParameterOption($values, $default = false, $onlyParams = false)
+    public function getParameterOption($values, $default = false, bool $onlyParams = false)
     {
         $values = (array) $values;
 
@@ -107,7 +107,7 @@ class ArrayInput extends Input
     {
         $params = [];
         foreach ($this->parameters as $param => $val) {
-            if ($param && '-' === $param[0]) {
+            if ($param && \is_string($param) && '-' === $param[0]) {
                 if (\is_array($val)) {
                     foreach ($val as $v) {
                         $params[] = $param.('' != $v ? '='.$this->escapeToken($v) : '');

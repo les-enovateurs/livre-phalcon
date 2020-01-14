@@ -8,4 +8,4 @@ $router->add('/photo', [
     'action'     => 'photo',
 ])->setName('photo');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

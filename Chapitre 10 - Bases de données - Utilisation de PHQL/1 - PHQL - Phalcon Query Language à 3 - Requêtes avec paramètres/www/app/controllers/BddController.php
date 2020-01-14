@@ -68,7 +68,7 @@ class BddController extends ControllerBase
         array-int 	Array of Column::BIND_PARAM_INT 	{flags:array-int}
          */
 
-        $sPhSql = "SELECT * FROM HelloWorld\Models\Utilisateurs WHERE id > {id:int} AND prenom in ({liste_prenom:array-str})";
+        $sPhSql = "SELECT * FROM HelloWorld\Models\Utilisateurs where id > {id:int} AND prenom in ({liste_prenom:array-str})";
 
         $aUtilisateursAvecParametresEtTypeTableau = $this->modelsManager->executeQuery($sPhSql,
             [

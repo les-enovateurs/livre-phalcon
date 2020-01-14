@@ -1,5 +1,5 @@
 {
     "require-dev": {
-        "phalcon/devtools": "~3.4"
+        "phalcon/devtools": "~4.0"
     }
 }

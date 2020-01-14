@@ -7,4 +7,4 @@ $router->add('/erreur/importante', [
     'action'     => 'erreurImportante',
 ])->setName('erreur_importante');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

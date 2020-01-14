@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Modified: prepend directory path of current file, because of this file own different ENV under between Apache and command line.
  * NOTE: please remove this comment.
@@ -9,7 +10,7 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => 'phalcon-db',
+        'host'        => 'localhost',
         'username'    => 'root',
         'password'    => '',
         'dbname'      => 'test',

@@ -50,7 +50,8 @@ class BddController extends ControllerBase
             ->from([
                 'HelloWorld\Models\Utilisateurs',
                 'HelloWorld\Models\Entreprises',
-            ])->getQuery()->getSingleResult();
+            ])->getQuery()
+            ->getSingleResult();
 
         $this->view->utilisateur_entreprise = $oUtilisateurEntreprise;
 
@@ -77,7 +78,11 @@ class BddController extends ControllerBase
         $this->view->utilisateur_jointure_simple_toutes_colonnes = $oUtilisateurJointureSimpleTouteColonne;
 
         $oUtilisateurJointureColonne = $this->modelsManager->createBuilder()
-            ->columns('HelloWorld\Models\Utilisateurs.prenom')
+            ->columns(
+                [
+                    'prenom' => 'HelloWorld\Models\Utilisateurs.prenom'
+                ]
+            )
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->getQuery()->getSingleResult();
@@ -87,8 +92,8 @@ class BddController extends ControllerBase
         $oUtilisateurJointureColonnes = $this->modelsManager->createBuilder()
             ->columns(
                 [
-                    'HelloWorld\Models\Utilisateurs.prenom',
-                    'HelloWorld\Models\Utilisateurs.nom'
+                    'prenom' => 'HelloWorld\Models\Utilisateurs.prenom',
+                    'nom' => 'HelloWorld\Models\Utilisateurs.nom'
                 ]
             )
             ->from('HelloWorld\Models\Utilisateurs')
@@ -98,7 +103,7 @@ class BddController extends ControllerBase
         $this->view->utilisateur_jointure_colonnes = $oUtilisateurJointureColonnes;
 
         $oUtilisateurJointureAvecAlias = $this->modelsManager->createBuilder()
-            ->columns([ 'utilisateur.prenom', 'entreprise.nom' ])
+            ->columns([ 'prenom' => 'utilisateur.prenom','nom' => 'entreprise.nom' ])
             ->from(
                 [
                     'utilisateur' => 'HelloWorld\Models\Utilisateurs'
@@ -114,7 +119,7 @@ class BddController extends ControllerBase
         $this->view->utilisateur_jointure_avec_alias = $oUtilisateurJointureAvecAlias;
 
         $oUtilisateurJointureManuelleAvecAlias = $this->modelsManager->createBuilder()
-            ->columns([ 'utilisateur.prenom', 'entreprise.nom' ])
+            ->columns([ 'prenom' => 'utilisateur.prenom','nom' => 'entreprise.nom' ])
             ->from(
                 [
                     'utilisateur' => 'HelloWorld\Models\Utilisateurs'
@@ -130,7 +135,7 @@ class BddController extends ControllerBase
         $this->view->utilisateur_jointure_manuelle_avec_alias = $oUtilisateurJointureManuelleAvecAlias;
 
         $aUtilisateurJointureColonneConditionsSimple = $this->modelsManager->createBuilder()
-            ->columns('HelloWorld\Models\Utilisateurs.prenom')
+            ->columns(['prenom' => 'HelloWorld\Models\Utilisateurs.prenom'])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->where(
@@ -144,7 +149,7 @@ class BddController extends ControllerBase
         $this->view->utilisateurs_jointure_colonne_conditions_simple = $aUtilisateurJointureColonneConditionsSimple;
 
         $aUtilisateurJointureColonneConditionsEt = $this->modelsManager->createBuilder()
-            ->columns('HelloWorld\Models\Utilisateurs.prenom')
+            ->columns(['prenom' => 'HelloWorld\Models\Utilisateurs.prenom'])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->where(
@@ -164,7 +169,7 @@ class BddController extends ControllerBase
         $this->view->utilisateurs_jointure_colonne_conditions_et = $aUtilisateurJointureColonneConditionsEt;
 
         $aUtilisateurJointureColonneAvecConditionsOu = $this->modelsManager->createBuilder()
-            ->columns('HelloWorld\Models\Utilisateurs.prenom')
+            ->columns(['prenom' => 'HelloWorld\Models\Utilisateurs.prenom'])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->where(
@@ -184,7 +189,7 @@ class BddController extends ControllerBase
         $this->view->utilisateurs_jointure_colonne_conditions_ou = $aUtilisateurJointureColonneAvecConditionsOu;
 
         $aUtilisateurJointureColonnesConditionsEntre = $this->modelsManager->createBuilder()
-            ->columns([ 'HelloWorld\Models\Utilisateurs.prenom', 'HelloWorld\Models\Utilisateurs.nom' ])
+            ->columns([ 'prenom' => 'HelloWorld\Models\Utilisateurs.prenom','nom' => 'HelloWorld\Models\Utilisateurs.nom' ])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->betweenWhere('HelloWorld\Models\Utilisateurs.id', 4, 8)
@@ -193,7 +198,7 @@ class BddController extends ControllerBase
         $this->view->utilisateurs_jointure_colonnes_conditions_entre = $aUtilisateurJointureColonnesConditionsEntre;
 
         $aUtilisateursConditionListeValeur = $this->modelsManager->createBuilder()
-            ->columns([ 'HelloWorld\Models\Utilisateurs.prenom', 'HelloWorld\Models\Utilisateurs.fonction' ])
+            ->columns([ 'prenom' => 'HelloWorld\Models\Utilisateurs.prenom','fonction' => 'HelloWorld\Models\Utilisateurs.fonction' ])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->inWhere(
@@ -207,7 +212,7 @@ class BddController extends ControllerBase
         $this->view->utilisateurs_condition_liste_valeur = $aUtilisateursConditionListeValeur;
 
         $aUtilisateursConditionPasDansListeValeur = $this->modelsManager->createBuilder()
-            ->columns([ 'HelloWorld\Models\Utilisateurs.prenom', 'HelloWorld\Models\Utilisateurs.fonction' ])
+            ->columns(['prenom' => 'HelloWorld\Models\Utilisateurs.prenom','fonction' => 'HelloWorld\Models\Utilisateurs.fonction' ])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->notInWhere(
@@ -221,7 +226,7 @@ class BddController extends ControllerBase
         $this->view->utilisateurs_condition_pas_dans_liste_valeur = $aUtilisateursConditionPasDansListeValeur;
 
         $aUtilisateurGroupByNom = $this->modelsManager->createBuilder()
-            ->columns([ 'HelloWorld\Models\Utilisateurs.nom', 'COUNT(HelloWorld\Models\Utilisateurs.nom) as nombre' ])
+            ->columns([ 'nom' => 'HelloWorld\Models\Utilisateurs.nom','nombre' => 'COUNT(HelloWorld\Models\Utilisateurs.nom)' ])
             ->from('HelloWorld\Models\Utilisateurs')
             ->join('HelloWorld\Models\Entreprises')
             ->groupBy('HelloWorld\Models\Utilisateurs.nom')
@@ -232,7 +237,8 @@ class BddController extends ControllerBase
         $aUtilisateurGroupByEntrepriseHaving = $this->modelsManager->createBuilder()
             ->columns(
                 [
-                    'HelloWorld\Models\Entreprises.nom', 'COUNT(HelloWorld\Models\Utilisateurs.nom) as nombre_employees'
+                    'nom' => 'HelloWorld\Models\Entreprises.nom',
+                    'nombre_employees' => 'COUNT(HelloWorld\Models\Utilisateurs.nom)'
                 ]
             )
             ->from('HelloWorld\Models\Utilisateurs')
@@ -251,7 +257,8 @@ class BddController extends ControllerBase
         $aUtilisateursParametresExecute = $this->modelsManager->createBuilder()
             ->columns(
                 [
-                    'HelloWorld\Models\Entreprises.nom', 'COUNT(HelloWorld\Models\Utilisateurs.nom) as nombre_employees'
+                    'nom' => 'HelloWorld\Models\Entreprises.nom',
+                    'nombre_employees' => 'COUNT(HelloWorld\Models\Utilisateurs.nom)'
                 ]
             )
             ->from('HelloWorld\Models\Utilisateurs')

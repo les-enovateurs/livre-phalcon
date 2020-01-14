@@ -44,8 +44,7 @@ try {
      */
     include BASE_PATH . '/vendor/autoload.php';
 
-    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
-
+echo $application->handle($_GET['_url'] ?? '/')->getContent();
 } catch (\Exception $e) {
     $application->logger->error(json_encode([
         'message' => $e->getMessage(),

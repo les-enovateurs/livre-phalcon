@@ -13,4 +13,4 @@ $router->addPost('/api/utilisateur', [
     'action'     => 'nouvel',
 ])->setName('nouveau');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

@@ -93,7 +93,7 @@ class Chap6Form extends Form
         $this->add($oRefuseCookies);
 
         /**  TYPE CASE A COCHER */
-        // activite
+        // activites
         $oVelo = new Check('velo',
             [
                 'name'  => 'activites[]',

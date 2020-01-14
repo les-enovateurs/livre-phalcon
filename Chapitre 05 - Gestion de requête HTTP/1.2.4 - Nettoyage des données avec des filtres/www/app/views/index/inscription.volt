@@ -38,30 +38,12 @@
         </tr>
         <tr>
             <td colspan="2">
-                INT!
-            </td>
-        </tr>
-        <tr>
-            <td>{{ cast_int_sans_filtre }}</td>
-            <td>{{ cast_int_avec_filtre }}</td>
-        </tr>
-        <tr>
-            <td colspan="2">
                 FLOAT
             </td>
         </tr>
         <tr>
             <td>{{ float_sans_filtre }}</td>
             <td>{{ float_avec_filtre }}</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                FLOAT!
-            </td>
-        </tr>
-        <tr>
-            <td>{{ cast_float_sans_filtre }}</td>
-            <td>{{ cast_float_avec_filtre }}</td>
         </tr>
         <tr>
             <td colspan="2">

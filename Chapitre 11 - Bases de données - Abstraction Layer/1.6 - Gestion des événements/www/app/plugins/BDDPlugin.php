@@ -3,9 +3,9 @@
 namespace HelloWorld\Plugins;
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 
-class BDDPlugin extends Plugin
+class BDDPlugin extends Injectable
 {
 
     public function afterConnect(Event $oEvent, $oConnexion)

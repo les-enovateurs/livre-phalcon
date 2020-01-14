@@ -7,6 +7,11 @@ use HelloWorld\Models\Utilisateurs;
 
 class IndexController extends ControllerBase
 {
+    public function initialize()
+    {
+        $this->tag->setTitle('Phalcon tuto');
+    }
+
     public function indexAction()
     {
         $this->tag->setDoctype(Tag::HTML5);

@@ -2,14 +2,16 @@
 
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
-use Phalcon\Mvc\Url as UrlResolver;
+use Phalcon\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
-use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Session\Manager as SessionManager;
+use Phalcon\Session\Adapter\Stream as SessionStream;
 use Phalcon\Flash\Direct as Flash;
 
-use Phalcon\Cache\Frontend\Factory as FFactory;
-use Phalcon\Cache\Backend\Factory as BFactory;
+use Phalcon\Storage\SerializerFactory;
+use Phalcon\Cache\AdapterFactory;
+use Phalcon\Cache;
 
 /**
  * Shared configuration service
@@ -47,8 +49,8 @@ $di->setShared('view', function () {
             $volt = new VoltEngine($view, $this);
 
             $volt->setOptions([
-                'compiledPath' => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'path' => $config->application->cacheDir,
+                'separator' => '_'
             ]);
 
             return $volt;
@@ -108,10 +110,17 @@ $di->set('flash', function () {
  * Start the session the first time some component request the session service
  */
 $di->setShared('session', function () {
-    $session = new SessionAdapter();
-    $session->start();
+    $oSession = new SessionManager();
+    $oFiles = new SessionStream(
+        [
+            'savePath' => '/tmp',
+        ]
+    );
+    $oSession->setAdapter($oFiles);
+    
+    $oSession->start();
 
-    return $session;
+    return $oSession;
 });
 
 
@@ -119,21 +128,18 @@ $di->setShared('session', function () {
  * Gestion du cache
  */
 $di->setShared('cache', function () {
-    $aOptions = [
-        'lifetime' => 172800,
-        'adapter'  => 'data',
-    ];
-    $oFrontCache = FFactory::load($aOptions);
-    
-    
-   $aOptions = [
-       'cacheDir' => '../app/cache/',
-       'prefix'   => 'hello-world-',
-       'frontend' => $oFrontCache,
-       'adapter'  => 'file',
-   ];
-   
-   $oBackCache = BFactory::load($aOptions);
 
-   return $oBackCache;
+    $oSerializerFactory = new SerializerFactory();
+    $oAdapterFactory    = new AdapterFactory($oSerializerFactory);
+
+    $aOptions = [
+        'defaultSerializer' => 'php',
+        'lifetime'          => 172800,
+        'storageDir'        => '../app/cache/',
+        'prefix'            => 'hello-world-',
+    ];
+
+    $oAdapter = $oAdapterFactory->newInstance('stream', $aOptions);
+
+    return new Cache($oAdapter);
 });

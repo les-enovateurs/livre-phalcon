@@ -3,7 +3,7 @@
 use Phalcon\Mvc\View;
 use HelloWorld\Models\Utilisateurs;
 
-use Phalcon\Db;
+use Phalcon\Db\Enum;
 
 class BddController extends ControllerBase
 {
@@ -14,7 +14,7 @@ class BddController extends ControllerBase
 
     public function connexionSQLAction(){
         $sSqlSelect                     = 'SELECT * FROM utilisateurs ORDER BY id DESC';
-        $this->view->utilisateurs = $this->db->fetchAll($sSqlSelect, Db::FETCH_OBJ);
+        $this->view->utilisateurs = $this->db->fetchAll($sSqlSelect, Enum::FETCH_OBJ);
 
         $oUtilisateur = new Utilisateurs();
         $oUtilisateur->email = 'nouveau@test.com';

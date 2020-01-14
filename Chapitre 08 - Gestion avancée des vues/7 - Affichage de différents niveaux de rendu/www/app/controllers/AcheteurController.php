@@ -1,5 +1,4 @@
 <?php
-
 use Phalcon\Mvc\View;
 
 class AcheteurController extends ControllerBase

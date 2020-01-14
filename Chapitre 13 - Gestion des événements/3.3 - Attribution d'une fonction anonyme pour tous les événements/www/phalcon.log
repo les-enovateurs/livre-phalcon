@@ -1,5 +1,4 @@
-[Tue, 31 Dec 19 18:49:51 +0000][DEBUG] Appel du contrôleur : index
-[Tue, 31 Dec 19 18:49:51 +0000][DEBUG] Appel de l'action : index
-[Tue, 31 Dec 19 18:49:51 +0000][DEBUG] Heure de début: 1577818186.3197
-[Tue, 31 Dec 19 18:49:51 +0000][DEBUG] Heure de fin: 1577818191.3203
-[Tue, 31 Dec 19 18:49:51 +0000][DEBUG] Temps total: 5.0006711483002
+[2019-12-31T18:53:19+00:00][debug] Appel de l'action : index
+[2019-12-31T18:53:19+00:00][debug] Heure de début: 1577818394.4575
+[2019-12-31T18:53:19+00:00][debug] Heure de fin: 1577818399.4587
+[2019-12-31T18:53:19+00:00][debug] Temps total: 5.0011851787567

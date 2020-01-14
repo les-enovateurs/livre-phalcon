@@ -1,10 +1,10 @@
 <?php
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 use Phalcon\Mvc\Dispatcher;
 
-class SecurityPlugin extends Plugin
+class SecurityPlugin extends Injectable
 {
     const CODE_ERREUR_APPLICATIF   = 508;
     const CODE_ERREUR_SERVEUR      = 500;

@@ -1,7 +1,7 @@
 <?php
 
 use Phalcon\Mvc\View\Simple as View;
-use Phalcon\Mvc\Url as UrlResolver;
+use Phalcon\Url as UrlResolver;
 
 /**
  * Shared configuration service
@@ -53,7 +53,13 @@ $di->setShared('db', function () {
 });
 
 $di->setShared('logger', function () {
-    $oLogger = new \Phalcon\Logger\Adapter\File(BASE_PATH . '/phalcon.log');
+    $oAdapter = new Phalcon\Logger\Adapter\Stream(BASE_PATH.'/phalcon.log');
+    $oLogger  = new Phalcon\Logger(
+        'messages',
+        [
+            'main' => $oAdapter,
+        ]
+    );
 
     $oLogger->setLogLevel(Phalcon\Logger::ERROR);
 

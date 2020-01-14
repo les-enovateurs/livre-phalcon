@@ -3,7 +3,7 @@
 use Phalcon\Mvc\View\Simple as View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
-use Phalcon\Mvc\Url as UrlResolver;
+use Phalcon\Url as UrlResolver;
 
 /**
  * Shared configuration service
@@ -23,12 +23,12 @@ $di->setShared('view', function () {
 
     $view->registerEngines([
         '.volt' => function ($view) {
-
+            
             $volt = new VoltEngine($view, $this);
  
             $volt->setOptions([
-                'compiledPath' => BASE_PATH . '/cache/',
-                'compiledSeparator' => '_'
+                'path' => BASE_PATH . '/cache/',
+                'separator' => '_'
             ]);
  
             return $volt;

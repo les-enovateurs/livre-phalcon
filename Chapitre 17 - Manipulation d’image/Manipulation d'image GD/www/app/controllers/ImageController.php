@@ -64,7 +64,7 @@ class ImageController extends ControllerBase
         $oImageRedimensionLargeur->resize(
             1080,
             null,
-            \Phalcon\Image::WIDTH
+            Phalcon\Image\Enum::WIDTH
         );
 
         $oImageRedimensionLargeur->save(BASE_PATH . '/public/img/les_enovateurs_largeur_1080.jpg');
@@ -78,7 +78,7 @@ class ImageController extends ControllerBase
         $oImageRedimensionHauteur->resize(
             null,
             1024,
-            \Phalcon\Image::HEIGHT
+            Phalcon\Image\Enum::HEIGHT
         );
 
         $oImageRedimensionHauteur->save(BASE_PATH . '/public/img/les_enovateurs_hauteur_1024.jpg');
@@ -92,7 +92,7 @@ class ImageController extends ControllerBase
         $oImageRedimensionLargeurHauteurAuto->resize(
             1080,
             1024,
-            \Phalcon\Image::AUTO
+            \Phalcon\Image\Enum::AUTO
         );
 
         $oImageRedimensionLargeurHauteurAuto->save(BASE_PATH . '/public/img/les_enovateurs_largeur_1080_hauteur_1024_plus_petit.jpg');
@@ -106,7 +106,7 @@ class ImageController extends ControllerBase
         $oImageRedimensionLargeurHauteurPrecise->resize(
             1080,
             1024,
-            \Phalcon\Image::PRECISE
+            \Phalcon\Image\Enum::PRECISE
         );
 
         $oImageRedimensionLargeurHauteurPrecise->save(BASE_PATH . '/public/img/les_enovateurs_largeur_1080_hauteur_1024_plus_gros.jpg');
@@ -120,7 +120,7 @@ class ImageController extends ControllerBase
         $oImageRedimensionLargeurHauteurSansProportions->resize(
             1080,
             1024,
-            \Phalcon\Image::TENSILE
+            \Phalcon\Image\Enum::TENSILE
         );
 
         $oImageRedimensionLargeurHauteurSansProportions->save(BASE_PATH . '/public/img/les_enovateurs_largeur_1080_hauteur_1024_sans_proportions.jpg');
@@ -134,7 +134,7 @@ class ImageController extends ControllerBase
         $oImageRedimensionDivisionParDeux->resize(
             $oImageRedimensionDivisionParDeux->getWidth() / 2,
             $oImageRedimensionDivisionParDeux->getHeight() / 2,
-            \Phalcon\Image::TENSILE
+            \Phalcon\Image\Enum::TENSILE
         );
 
         $oImageRedimensionDivisionParDeux->save(BASE_PATH . '/public/img/les_enovateurs_reduction_par_deux.jpg');
@@ -169,7 +169,7 @@ class ImageController extends ControllerBase
         //retournement de l'image vertical
         $oImageVertical = new Gd(BASE_PATH . '/public/img/les_enovateurs.jpg');
 
-        $oImageVertical->flip(\Phalcon\Image::VERTICAL);
+        $oImageVertical->flip(\Phalcon\Image\Enum::VERTICAL);
 
         $oImageVertical->save(BASE_PATH . '/public/img/les_enovateurs_rotation_vertical.jpg');
     }
@@ -179,7 +179,7 @@ class ImageController extends ControllerBase
         //retournement de l'image horizontal
         $oImageHorizontal = new Gd(BASE_PATH . '/public/img/les_enovateurs.jpg');
 
-        $oImageHorizontal->flip(\Phalcon\Image::HORIZONTAL);
+        $oImageHorizontal->flip(\Phalcon\Image\Enum::HORIZONTAL);
 
         $oImageHorizontal->save(BASE_PATH . '/public/img/les_enovateurs_rotation_horizontal.jpg');
     }

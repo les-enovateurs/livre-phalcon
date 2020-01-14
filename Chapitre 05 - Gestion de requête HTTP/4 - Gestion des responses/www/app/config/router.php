@@ -63,4 +63,4 @@ $router->add('/bonjour/nom/{nom}',[
     'action'     => 'bonjourNom',
 ])->setName('bonjour_nom');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

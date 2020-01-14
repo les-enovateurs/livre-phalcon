@@ -14,7 +14,7 @@ class ListeDeroulantePersonnalise extends Select
         parent::__construct($elementName, $elementValues, $parameters);
     }
 
-    public function render($attributes = null)
+    public function render(array $attributes = null):string
     {
 
         $sHTML = '<select name="' . $this->getName() . '" id="' . $this->getName() . '" ';

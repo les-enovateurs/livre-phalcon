@@ -19,14 +19,14 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: phalcon
     command: postgres -c logging_collector=on -c log_destination=stderr -c log_statement=all
-  
+
   phalcon-web:
     build:
       context: .
       dockerfile: ./Dockerfile
       args:
         - env=dev
-        - phalcon_version=v3.4.3
+        - phalcon_version=v4.0.0
     expose:
       - 80
     ports:

@@ -8,4 +8,4 @@ $router->add('/dossier/utilisateur/{id}', [
     'action'     => 'utilisateur',
 ])->setName('dossier_utilisateur');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

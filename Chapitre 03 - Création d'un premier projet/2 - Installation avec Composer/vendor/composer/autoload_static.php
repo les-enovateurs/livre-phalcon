@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit712d2993f8d80a225b407e63689159a6
+class ComposerStaticInit3baae5893e1517a381062e049e4f5fae
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
     );
 
@@ -22,8 +22,8 @@ class ComposerStaticInit712d2993f8d80a225b407e63689159a6
         'S' => 
         array (
             'Symfony\\Polyfill\\Php73\\' => 23,
-            'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Console\\' => 26,
@@ -33,12 +33,18 @@ class ComposerStaticInit712d2993f8d80a225b407e63689159a6
             'Psy\\' => 4,
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
-            'Phalcon\\' => 8,
+            'PhpOption\\' => 10,
+            'Phalcon\\Migrations\\' => 19,
+            'Phalcon\\DevTools\\' => 17,
         ),
         'J' => 
         array (
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
             'JakubOnderka\\PhpConsoleColor\\' => 29,
+        ),
+        'D' => 
+        array (
+            'Dotenv\\' => 7,
         ),
     );
 
@@ -51,13 +57,13 @@ class ComposerStaticInit712d2993f8d80a225b407e63689159a6
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
         ),
-        'Symfony\\Polyfill\\Php72\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
-        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Symfony\\Contracts\\Service\\' => 
         array (
@@ -83,9 +89,17 @@ class ComposerStaticInit712d2993f8d80a225b407e63689159a6
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Phalcon\\' => 
+        'PhpOption\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phalcon/devtools/scripts/Phalcon',
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Phalcon\\Migrations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phalcon/migrations/src',
+        ),
+        'Phalcon\\DevTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phalcon/devtools/src',
         ),
         'JakubOnderka\\PhpConsoleHighlighter\\' => 
         array (
@@ -94,6 +108,10 @@ class ComposerStaticInit712d2993f8d80a225b407e63689159a6
         'JakubOnderka\\PhpConsoleColor\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
+        ),
+        'Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
     );
 
@@ -104,9 +122,9 @@ class ComposerStaticInit712d2993f8d80a225b407e63689159a6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit712d2993f8d80a225b407e63689159a6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit712d2993f8d80a225b407e63689159a6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit712d2993f8d80a225b407e63689159a6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3baae5893e1517a381062e049e4f5fae::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3baae5893e1517a381062e049e4f5fae::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3baae5893e1517a381062e049e4f5fae::$classMap;
 
         }, null, ClassLoader::class);
     }

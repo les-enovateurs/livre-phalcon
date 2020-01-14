@@ -1,10 +1,10 @@
 <?php
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 use Phalcon\Mvc\Dispatcher;
 
-class ReponsePlugin extends Plugin
+class ReponsePlugin extends Injectable
 {
     public function afterExecuteRoute(Event $event, Dispatcher $oDispatcher)
     {

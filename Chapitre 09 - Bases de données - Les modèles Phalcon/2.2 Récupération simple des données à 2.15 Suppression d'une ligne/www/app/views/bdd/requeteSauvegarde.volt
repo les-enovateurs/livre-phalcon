@@ -11,12 +11,16 @@
 
 <h3>Sauvegarde par tableau</h3>
 <code>
-$oUtilisateurTableau->save([
-    'prenom'       => 'Olivia',
-    'email'        => 'olivia.doe_'.uniqid().'@les-enovateurs.com',
-    'mot_de_passe' => 'azerty',
-    'fonction'     => 'DPO'
-]);
+    $oUtilisateur->assign(
+        [
+            'prenom'       => 'Olivia',
+            'email'        => 'olivia.doe_'.uniqid().'@les-enovateurs.com',
+            'mot_de_passe' => 'azerty',
+            'fonction'     => 'DPO'
+        ]
+    );
+
+    $oUtilisateur->save();  
 </code>
 
 <h3>Liste des deux dernières utilisatrices</h3>

@@ -3,8 +3,6 @@
 use Phalcon\Mvc\View;
 use HelloWorld\Models\Utilisateurs;
 
-use Phalcon\Db;
-
 class BddController extends ControllerBase
 {
     public function indexAction()

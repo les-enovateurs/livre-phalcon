@@ -3,7 +3,7 @@
 use Phalcon\Mvc\View;
 use HelloWorld\Models\Utilisateurs;
 
-use Phalcon\Paginator\Adapter\Model as PaginatorModel;
+use Phalcon\Paginator\Adapter\QueryBuilder;
 
 class BddController extends ControllerBase
 {
@@ -23,13 +23,14 @@ class BddController extends ControllerBase
         if(true === $this->request->has('page')){
             $nPageCourante = $this->request->get('page');
         }
-        $aUtilisateur = Utilisateurs::find();
 
-        $oPaginator = new PaginatorModel(
+        $builder = $this->modelsManager->createBuilder()->from(Utilisateurs::class);
+
+        $oPaginator = new QueryBuilder(
             [
-                'data'  => $aUtilisateur,
-                'limit' => 10,
-                'page'  => $nPageCourante,
+                'builder' => $builder,
+                'limit'   => 10,
+                'page'    => $nPageCourante,
             ]
         );
 

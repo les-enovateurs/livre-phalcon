@@ -26,7 +26,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         - env=dev
-        - phalcon_version=v3.4.3
+        - phalcon_version=v4.0.0
     expose:
       - 80
     ports:
@@ -48,7 +48,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         - env=dev
-        - phalcon_version=v3.4.3
+        - phalcon_version=v4.0.0
     expose:
       - 8080
     ports:

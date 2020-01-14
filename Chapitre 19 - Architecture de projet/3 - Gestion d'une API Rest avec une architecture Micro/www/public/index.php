@@ -45,7 +45,7 @@ try {
     /**
      * Handle the request
      */
-    $app->handle();
+    $app->handle($_SERVER["REQUEST_URI"]);
 
 } catch (\Exception $e) {
     $app->logger->error(json_encode([

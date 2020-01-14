@@ -38,4 +38,4 @@ $router->add('/suppression/tout/cache', [
     'action'     => 'suppressionToutCache',
 ])->setName('suppression_tout_cache');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

@@ -53,4 +53,4 @@ $router->addDelete('/api/cours/supprimer/{id:[0-9]+}', [
     'action'     => 'supprimer',
 ])->setName('cours_supprimer');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

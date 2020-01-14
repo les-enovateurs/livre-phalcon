@@ -2,16 +2,18 @@
 
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
-use Phalcon\Mvc\Url as UrlResolver;
+use Phalcon\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
-use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Session\Manager as SessionManager;
+use Phalcon\Session\Adapter\Stream as SessionStream;
 use Phalcon\Flash\Direct as Flash;
 
-use Phalcon\Db;
+use Phalcon\Db\Enum;
 
-use Phalcon\Cache\Frontend\Factory as FFactory;
-use Phalcon\Cache\Backend\Factory as BFactory;
+use Phalcon\Storage\SerializerFactory;
+use Phalcon\Cache\AdapterFactory;
+use Phalcon\Cache;
 
 /**
  * Shared configuration service
@@ -49,8 +51,8 @@ $di->setShared('view', function () {
             $volt = new VoltEngine($view, $this);
 
             $volt->setOptions([
-                'compiledPath'      => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'path'      => $config->application->cacheDir,
+                'separator' => '_'
             ]);
 
             return $volt;
@@ -76,7 +78,7 @@ $di->setShared('db', function () {
         'dbname'   => $config->database->dbname,
         'port'     => $config->database->port,
         'options'  => [
-            PDO::ATTR_DEFAULT_FETCH_MODE => Db::FETCH_ASSOC
+            PDO::ATTR_DEFAULT_FETCH_MODE => Enum::FETCH_ASSOC
         ]
         /** $$ 'charset'  => $config->database->charset*/
     ];
@@ -110,52 +112,52 @@ $di->set('flash', function () {
  * Start the session the first time some component request the session service
  */
 $di->setShared('session', function () {
-    $session = new SessionAdapter();
-    $session->start();
+    $oSession = new SessionManager();
+    $oFiles = new SessionStream(
+        [
+            'savePath' => '/tmp',
+        ]
+    );
+    $oSession->setAdapter($oFiles);
+    
+    $oSession->start();
 
-    return $session;
+    return $oSession;
 });
 
 /**
  * Gestion du cache du modèle
  */
 $di->set('modelsCache', function () {
-    $aOptions = [
-        'lifetime' => 172800,
-        'adapter'  => 'data',
-    ];
-    $oFrontCache = FFactory::load($aOptions);
-
+    $oSerializerFactory = new SerializerFactory();
+    $oAdapterFactory    = new AdapterFactory($oSerializerFactory);
 
     $aOptions = [
-        'cacheDir' => '../app/cache/model/',
-        'frontend' => $oFrontCache,
-        'adapter'  => 'file',
+        'defaultSerializer' => 'php',
+        'lifetime'          => 172800,
+        'storageDir'        => '../app/cache/model/'
     ];
 
-    $oBackCache = BFactory::load($aOptions);
+    $oAdapter = $oAdapterFactory->newInstance('stream', $aOptions);
 
-    return $oBackCache;
+    return new Cache($oAdapter);
 });
 
 /**
  * Gestion du cache
  */
 $di->setShared('cache', function () {
-    $aOptions = [
-        'lifetime' => 172800,
-        'adapter'  => 'data',
-    ];
-    $oFrontCache = FFactory::load($aOptions);
 
+    $oSerializerFactory = new SerializerFactory();
+    $oAdapterFactory    = new AdapterFactory($oSerializerFactory);
 
     $aOptions = [
-        'cacheDir' => '../app/cache/simple/',
-        'frontend' => $oFrontCache,
-        'adapter'  => 'file',
+        'defaultSerializer' => 'php',
+        'lifetime'          => 172800,
+        'storageDir'        => '../app/cache/simple/'
     ];
 
-    $oBackCache = BFactory::load($aOptions);
+    $oAdapter = $oAdapterFactory->newInstance('stream', $aOptions);
 
-    return $oBackCache;
+    return new Cache($oAdapter);
 });

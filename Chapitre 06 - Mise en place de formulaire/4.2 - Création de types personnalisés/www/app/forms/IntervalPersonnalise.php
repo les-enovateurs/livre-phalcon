@@ -1,11 +1,11 @@
 <?php
 namespace HelloWorld\Forms;
 
-use Phalcon\Forms\Element;
+use Phalcon\Forms\Element\AbstractElement;
 
-class IntervalPersonnalise extends Element
+class IntervalPersonnalise extends AbstractElement
 {
-    public function render($aAttributs = null)
+    public function render(array $aAttributs = null): string
     {
 
         $sHtml = '<input type="numeric" name="debut_' . $this->getName() . '" id="debut_' . $this->getName() . '"> - ';

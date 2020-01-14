@@ -26,7 +26,7 @@ class IndexController extends ControllerBase
             $aUtilisateurs = Utilisateurs::find();
 
             // Enregistrement de la liste dans le cache
-            $oCache->save($sCleCache, $aUtilisateurs);
+            $oCache->set($sCleCache, $aUtilisateurs);
 
             $this->view->utilisation_cache = false;
         }
@@ -47,7 +47,7 @@ class IndexController extends ControllerBase
 
         // Tentative de récupération de la liste des utilisateurs en cache
         // Le cache expire au bout de 3600 secondes
-        $aUtilisateurs = $oCache->get($sCleCache,3600);
+        $aUtilisateurs = $oCache->get($sCleCache);
 
         // Si la donnée récupéré est null, cela signifie que le cache n'a pas été initialisé
         if ($aUtilisateurs === null) {
@@ -56,7 +56,7 @@ class IndexController extends ControllerBase
             $aUtilisateurs = Utilisateurs::find();
 
             // Enregistrement de la liste dans le cache
-            $oCache->save($sCleCache, $aUtilisateurs);
+            $oCache->set($sCleCache, $aUtilisateurs, 3600);
 
             $this->view->utilisation_cache = false;
         }
@@ -86,7 +86,7 @@ class IndexController extends ControllerBase
             $aUtilisateurs = Utilisateurs::find();
 
             // Enregistrement de la liste dans le cache
-            $oCache->save($sCleCache, $aUtilisateurs, 3600);
+            $oCache->set($sCleCache, $aUtilisateurs, 3600);
 
             $this->view->utilisation_cache = false;
         }
@@ -101,12 +101,11 @@ class IndexController extends ControllerBase
     public function listeElementCacheAction(){
         $oCache = $this->di->get('cache');
 
-        $aClesCache = $oCache->queryKeys();
+        $aClesCache =  $oCache->getAdapter()->getKeys();
 
         $aDonneesCache = [];
 
         foreach ($aClesCache as $sCleCache) {
-            $sCleCache                 = str_replace($oCache->getOptions('prefix'),'',$sCleCache);
             $aDonnees                  = $oCache->get($sCleCache);
             $aDonneesCache[$sCleCache] = $aDonnees;
         }
@@ -119,9 +118,9 @@ class IndexController extends ControllerBase
         $oCache = $this->di->get('cache');
 
         // Recherche les clés commençant par uti
-        $aCleCache = $oCache->queryKeys('uti');
+        $aClesCache =  $oCache->getAdapter()->getKeys('uti');
 
-        $this->view->cle_trouve = $aCleCache;
+        $this->view->cle_trouve = $aClesCache;
     }
 
     public function suppressionCacheAction(){
@@ -130,7 +129,7 @@ class IndexController extends ControllerBase
         $sCleCache = 'utilisateurs.cache_simple';
 
         //vérification de l'existance
-        if (true === $oCache->exists($sCleCache)) {
+        if (true === $oCache->has($sCleCache)) {
             //suppression du cache
             $oCache->delete($sCleCache);
 
@@ -139,7 +138,6 @@ class IndexController extends ControllerBase
         else{
             $this->view->cache_supprime = false;
         }
-
     }
 
     public function suppressionToutCacheAction(){
@@ -154,7 +152,7 @@ class IndexController extends ControllerBase
 
         foreach($aClesCache as $sCleCache){
             //vérification de l'existance
-            if (true === $oCache->exists($sCleCache)) {
+            if (true === $oCache->has($sCleCache)) {
                 //suppression du cache
                 $oCache->delete($sCleCache);
             }

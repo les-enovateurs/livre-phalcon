@@ -23,4 +23,4 @@ $router->add('/utilisateur/session/suppression/complet', [
     'action'     => 'suppressionCompleteSession',
 ])->setName('suppression_session_complete');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

@@ -2,15 +2,15 @@
 
 namespace HelloWorld\Plugins;
 
-use Phalcon\Acl;
+use Phalcon\Acl\Enum as AclEnum;
 use Phalcon\Acl\Role;
-use Phalcon\Acl\Resource;
+use Phalcon\Acl\Component;
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Acl\Adapter\Memory;
 
-class SecurityPlugin extends Plugin
+class SecurityPlugin extends Injectable
 {
     public function getAcl()
     {
@@ -22,7 +22,7 @@ class SecurityPlugin extends Plugin
 
             $oAcl = new Memory();
 
-            $oAcl->setDefaultAction(Acl::DENY);
+            $oAcl->setDefaultAction(AclEnum::DENY);
 
             /** Liste de rôle */
             $aRoles = [
@@ -57,9 +57,9 @@ class SecurityPlugin extends Plugin
 
             foreach ($aActionParRole as $sRole => $aRole) {
                 foreach ($aRole as $sControleur => $aActions) {
-                    $oRessourceControleur = new Resource($sControleur);
+                    $oRessourceControleur = new Component($sControleur);
                     foreach($aActions as $sAction){
-                        $oAcl->addResource($oRessourceControleur, $sAction);
+                        $oAcl->addComponent($oRessourceControleur, $sAction);
                         $oAcl->allow($sRole, $sControleur, $sAction);
                     }
                 }
@@ -74,7 +74,7 @@ class SecurityPlugin extends Plugin
             function (Event $oEvent, $oAcl) {
                 $this->logger->debug("Avant accès");
                 $this->logger->debug('Rôle actif : ' . $oAcl->getActiveRole());
-                $this->logger->debug('Contrôleur : ' . $oAcl->getActiveResource());
+                $this->logger->debug('Contrôleur : ' . $oAcl->getActiveComponent());
                 $this->logger->debug('Action : '.$oAcl->getActiveAccess());
 
                 return true;
@@ -86,7 +86,7 @@ class SecurityPlugin extends Plugin
             function (Event $oEvent, $oAcl) {
                 $this->logger->debug("Après accès");
                 $this->logger->debug('Rôle actif : ' . $oAcl->getActiveRole());
-                $this->logger->debug('Contrôleur : ' . $oAcl->getActiveResource());
+                $this->logger->debug('Contrôleur : ' . $oAcl->getActiveComponent());
                 $this->logger->debug('Action : '.$oAcl->getActiveAccess());
             }
         );
@@ -108,9 +108,9 @@ class SecurityPlugin extends Plugin
 
         if (true === is_null($oUtilisateur)) {
             if ( $sControleur === 'index' && ( $sAction === 'connexion' ||
-                                                    $sAction === 'index' ||
-                                                    $sAction === 'fonctionVerificationAvance' ||
-                                                    $sAction === 'heritageRole') ){
+                    $sAction === 'index' ||
+                    $sAction === 'fonctionVerificationAvance' ||
+                    $sAction === 'heritageRole') ){
                 return true;
             }
             else {

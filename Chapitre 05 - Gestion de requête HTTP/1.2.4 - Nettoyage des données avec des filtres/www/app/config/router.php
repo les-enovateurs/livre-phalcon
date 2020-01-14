@@ -8,4 +8,4 @@ $router->add('/inscription', [
     'action'     => 'inscription',
 ])->setName('inscription');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

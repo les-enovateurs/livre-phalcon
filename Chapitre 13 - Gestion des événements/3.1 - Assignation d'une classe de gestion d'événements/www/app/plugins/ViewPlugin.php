@@ -3,9 +3,9 @@
 namespace HelloWorld\Plugins;
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 
-class ViewPlugin extends Plugin
+class ViewPlugin extends Injectable
 {
     public function beforeRender(Event $oEvent, $oView)
     {

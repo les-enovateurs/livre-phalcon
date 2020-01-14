@@ -52,3 +52,5 @@
 
 {# Appel de la macro #}
 {{ '<form>' ~ bouton_enregistrement('Envoyer') ~ '</form>' }}
+
+

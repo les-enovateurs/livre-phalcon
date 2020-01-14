@@ -2,13 +2,16 @@
 
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
-use Phalcon\Mvc\Url as UrlResolver;
+use Phalcon\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
-use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Session\Manager as SessionManager;
+use Phalcon\Session\Adapter\Stream as SessionStream;
 use Phalcon\Flash\Direct as Flash;
 
-use Phalcon\Session\Factory;
+use Phalcon\Session\Manager;
+use Phalcon\Storage\AdapterFactory;
+use Phalcon\Session\Adapter\Redis;
 
 /**
  * Shared configuration service
@@ -46,8 +49,8 @@ $di->setShared('view', function () {
             $volt = new VoltEngine($view, $this);
 
             $volt->setOptions([
-                'compiledPath' => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'path' => $config->application->cacheDir,
+                'separator' => '_'
             ]);
 
             return $volt;
@@ -114,10 +117,12 @@ $di->setShared('session', function () {
         'prefix'     => 'app_',
         'adapter'    => 'redis',
     ];
-    
-    $oSession = Factory::load($oOptions);
-    $oSession->start();
-    
+
+    $oSession = new Manager();
+    $oFactory = new AdapterFactory(new Phalcon\Storage\SerializerFactory());
+    $oRedis   = new Redis($oFactory, $oOptions);
+
+    $oSession->setAdapter($oRedis)->start();
 
     return $oSession;
 });

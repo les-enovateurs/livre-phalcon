@@ -3,15 +3,15 @@
 namespace HelloWorld\Plugins;
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
-use Phalcon\Dispatcher;
+use Phalcon\Di\Injectable;
+use Phalcon\Dispatcher\Exception as DispatcherExceptionCode;
 use Phalcon\Mvc\Dispatcher\Exception as DispatcherException;
 use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 
 /**
  * Gestion des exceptions
  */
-class ExceptionPlugin extends Plugin
+class ExceptionPlugin extends Injectable
 {
     /**
      * L'événement utilisé avant le déclenchement d'une exception
@@ -27,8 +27,8 @@ class ExceptionPlugin extends Plugin
 
         if ($oException instanceof DispatcherException) {
             switch ($oException->getCode()) {
-                case Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
-                case Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
+                case DispatcherExceptionCode::EXCEPTION_HANDLER_NOT_FOUND:
+                case DispatcherExceptionCode::EXCEPTION_ACTION_NOT_FOUND:
                     $oDispatcher->forward(
                         [
                             'controller' => 'error',

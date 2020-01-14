@@ -48,7 +48,7 @@
 <h4>PHTML</h4>
 <?php echo $this->tag->linkTo(['dossier/utilisateur', 'Liste de dossier utilisateur', 'class' => 'btn btn-primary', 'title' => 'Liste de dossiers']) ?>
 
-<h2>Création d'un formulaire - En Volt</h2>
+<h2>Création d'un formulaire - en Volt</h2>
 {{ form('inscription', 'method': 'post') }}
 
     <h3>Création d'un champ texte</h3>
@@ -78,13 +78,16 @@
 
     <h3>Génération de liste dynamique</h3>
         {{ select(
-            'utilisateurs_id',
-            utilisateurs,
-            'using': ['id', 'prenom'],
-            'useEmpty': true,
-            'emptyText': 'Choisissez un utilisateur', 
-            'emptyValue': '@'
-            ) 
+                [
+                'utilisateurs_id',
+                utilisateurs,
+                'using': ['id', 'prenom'],
+                'useEmpty': true,
+                'emptyText': 'Choisissez un utilisateur',
+                'emptyValue': '@'
+
+                ]
+            )
         }}
 
     <h3>Utilisation de champs HTML</h3>

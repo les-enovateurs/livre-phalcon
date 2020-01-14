@@ -1,12 +1,12 @@
 <?php
 
 use Phalcon\Events\Event;
-use Phalcon\Mvc\User\Plugin;
+use Phalcon\Di\Injectable;
 use Phalcon\Mvc\Dispatcher;
 
 use Lcobucci\JWT\Builder;
 
-class SecurityPlugin extends Plugin
+class SecurityPlugin extends Injectable
 {
     //Avant de gérer une requête extérieur
     public function beforeHandleRoute(Event $oEvent, Dispatcher $oDispatcher)

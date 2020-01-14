@@ -11,6 +11,9 @@
 <h3>Un seul utilisateur</h3>
 <p>{{ un_utilisateur_simple.prenom }}</p>
 
+<h3>Affichage de deux tables sans liaison</h3>
+<p>Prénom : {{ utilisateur_entreprise.readAttribute('helloWorld\Models\Utilisateurs').prenom }} - Entreprise - {{ utilisateur_entreprise.readAttribute('helloWorld\Models\Entreprises').nom }}</p>
+
 <h3>Limitation à deux lignes</h3>
 <ul>
     {% for utilisateur in liste_utilisateurs_limite %}
@@ -26,7 +29,7 @@
 </ul>
 
 <h3>Jointure naturelle entre deux tables</h3>
-<h4>Jointure avec la fonction form() - Prend la première ligne de chaque table (n'utilise pas les clés étrangères)</h4>
+<h4>Jointure avec la fonction form()</h4>
 <p>Prénom : {{ utilisateur_entreprise.readAttribute('helloWorld\Models\Utilisateurs').prenom }} - Entreprise - {{ utilisateur_entreprise.readAttribute('helloWorld\Models\Entreprises').nom }}</p>
 
 <h4>Jointure avec la fonction join()</h4>

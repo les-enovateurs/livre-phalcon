@@ -3,11 +3,14 @@
 class IndexController extends ControllerBase
 {
     public function indexAction(){
+
         $this->view->nom_utilisateur = $this->cookies->get('nom_utilisateur');
     }
 
     public function connexionAction()
     {
+        $bSecurise = $this->dispatcher->getParam("securise");
+
         $sNomDuCookie = 'nom_utilisateur';
 
         // Vérifie si l'utilisateur est déjà connecté
@@ -20,6 +23,7 @@ class IndexController extends ControllerBase
             $this->view->cookie_nom_utilisateur = $oNomUtilisateur->getValue();
         }
         else{
+
             // Création d'un cookie dont le nom est nom_utilisateur, sa valeur Franck.
             // Le cookie sera expiré au bout de 3 jours (86400 secondes)
             $this->cookies->set(

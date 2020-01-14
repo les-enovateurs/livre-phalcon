@@ -5,7 +5,7 @@ LABEL   description="Installation d'Apache 2, PHP 7.2 et Phalcon" \
         name="apache2_php7_phalcon_version"
 
 # liste des arguments
-ARG phalcon_version='v3.4.3'
+ARG phalcon_version='v4.0.0'
 ARG env='prod'
 
 # Installation de Wget, Curl, gnupg, zip, unzip et libzip-dev
@@ -17,6 +17,11 @@ RUN docker-php-ext-install zip
 
 # Installation de Git
 RUN apt-get install -y git
+
+RUN cd /tmp && git clone https://github.com/jbboehr/php-psr.git
+RUN cd /tmp/php-psr && phpize && ./configure && make && make test && make install
+
+RUN docker-php-ext-enable psr
 
 # Aller dans le répertoire temporaire et télécharger le projet Phalcon
 RUN cd /tmp && git clone "git://github.com/phalcon/cphalcon.git"

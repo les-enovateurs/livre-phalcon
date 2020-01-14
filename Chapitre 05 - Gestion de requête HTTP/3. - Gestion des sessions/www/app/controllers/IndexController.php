@@ -48,3 +48,4 @@ class IndexController extends ControllerBase
         $this->session->destroy();
     }
 }
+

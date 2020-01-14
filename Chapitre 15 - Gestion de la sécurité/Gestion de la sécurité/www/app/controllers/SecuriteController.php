@@ -41,7 +41,7 @@ class SecuriteController extends ControllerBase
 
     public function hashAction()
     {
-	$sMotDePasse = '';
+        $sMotDePasse = '';
         if(true === $this->request->has('mot_de_passe')){
             $sMotDePasse        = $this->request->getPost('mot_de_passe');
         }

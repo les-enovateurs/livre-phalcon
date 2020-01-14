@@ -19,7 +19,7 @@
         <li>{{ utilisateur.prenom }}</li>
     {% endfor %}
 </ul>
-<h2>Requête avec des paramètres et des types tableau (contrainte avec une liste de nom et id > 3)</h2>
+<h2>Requête avec des paramètres et des types tableau (contrainte avec une liste de nom)</h2>
 <ul>
     {% for utilisateur in utilisateurs_avec_parametres_et_types_tableau %}
         <li>{{ utilisateur.prenom }}</li>

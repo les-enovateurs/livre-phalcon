@@ -23,4 +23,4 @@ $router->add('/heritage/role', [
     'action'     => 'heritageRole',
 ])->setName('heritage_role');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

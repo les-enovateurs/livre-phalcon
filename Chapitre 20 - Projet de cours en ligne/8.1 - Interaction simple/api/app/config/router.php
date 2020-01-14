@@ -13,4 +13,4 @@ $router->addPost('/api/connexion', [
     'action'     => 'connexion',
 ])->setName('connexion_index');
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

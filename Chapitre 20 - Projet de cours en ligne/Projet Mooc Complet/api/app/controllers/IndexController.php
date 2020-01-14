@@ -59,7 +59,8 @@ class IndexController extends ControllerBase
         $aUtilisateur = $this->request->getJsonRawBody(true);
 
         $oUtilisateur = new Utilisateurs();
-        $bSauvegarde  = $oUtilisateur->save($aUtilisateur);
+        $oUtilisateur->assign($aUtilisateur);
+        $bSauvegarde  = $oUtilisateur->save();
 
         if (true == $bSauvegarde) {
             return [

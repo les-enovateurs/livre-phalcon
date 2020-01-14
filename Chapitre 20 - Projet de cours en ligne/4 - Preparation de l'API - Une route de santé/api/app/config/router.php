@@ -9,4 +9,4 @@ $router->addGet('/api/sante', [
 ])->setName('sante_index');
 
 
-$router->handle();
+$router->handle($_GET['_url'] ?? '/');

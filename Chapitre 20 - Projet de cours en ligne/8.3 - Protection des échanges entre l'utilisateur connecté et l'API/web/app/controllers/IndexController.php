@@ -51,3 +51,4 @@ class IndexController extends ControllerBase
         $this->view->connexion_form = $oConnexionForm;
     }
 }
+

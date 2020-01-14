@@ -7,6 +7,6 @@
     {% endfor %}
 </ul>
 
-<a href='{{ url('bdd/pagination') }}'>Première Page</a> - <a href='{{ url('bdd/pagination?page=')~utilisateur_pagination.before }}'>Page précédente</a> - Vous êtes à la page {{ utilisateur_pagination.current }}/{{ utilisateur_pagination.total_pages }} - <a href='{{ url('bdd/pagination?page=')~utilisateur_pagination.next }}'>Page suivante</a> - <a href='{{ url('bdd/pagination?page=')~utilisateur_pagination.last }}'>Dernière page</a>
+<a href='{{ url('bdd/pagination') }}'>Première Page</a> - <a href='{{ url('bdd/pagination?page=')~utilisateur_pagination.previous }}'>Page précédente</a> - Vous êtes à la page {{ utilisateur_pagination.current }}/{{ utilisateur_pagination.last }} - <a href='{{ url('bdd/pagination?page=')~utilisateur_pagination.next }}'>Page suivante</a> - <a href='{{ url('bdd/pagination?page=')~utilisateur_pagination.last }}'>Dernière page</a>
 <br />
 <small>Il y a {{ utilisateur_pagination.total_items }} utilisateurs.</small>
