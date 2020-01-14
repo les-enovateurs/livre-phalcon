@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Hello World\n"
+"POT-Creation-Date: 2019-07-31 17:53+0200\n"
+"PO-Revision-Date: 2019-07-31 17:55+0200\n"
+"Last-Translator: \n"
+"Language-Team: Les Enovateurs\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _;traduction;t._\n"
+"X-Poedit-SearchPath-0: views\n"
+"X-Poedit-SearchPath-1: controllers\n"
+
+#: views/index/index.volt:1
+msgid "traduction d'éléments"
+msgstr "translate item"
+
+#: views/index/index.volt:2
+msgid "non présent dans le dictionnaire"
+msgstr ""
+
+#: views/index/index.volt:3
+msgid "avec %variable%"
+msgstr "with %variable%"
+
+#~ msgid "test"
+#~ msgstr "hi"

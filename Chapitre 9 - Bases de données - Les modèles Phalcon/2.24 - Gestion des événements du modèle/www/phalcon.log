@@ -1,0 +1,84 @@
+[Thu, 29 Aug 19 14:23:16 +0000][WARNING] Ajout (save) d'un utilisateur
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation de création de ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après validation de création de ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant création
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après création
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après ajout/modification
+[Thu, 29 Aug 19 14:23:16 +0000][WARNING] Récupération du premier utilisateur
+[Thu, 29 Aug 19 14:23:16 +0000][WARNING] Modification (save) d'une ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation d'une modification de ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après validation de mise à jour de donnnées
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant mise à jour
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après modification
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après ajout/modification
+[Thu, 29 Aug 19 14:23:16 +0000][WARNING] Modification d'une ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation d'une modification de ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après validation de mise à jour de donnnées
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant mise à jour
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après modification
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après ajout/modification
+[Thu, 29 Aug 19 14:23:16 +0000][WARNING] Création d'un nouvel utilisateur
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant validation de création de ligne
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Validation a échoué
+[Thu, 29 Aug 19 14:23:16 +0000][WARNING] Suppression d'un utilisateur
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Avant suppression
+[Thu, 29 Aug 19 14:23:16 +0000][DEBUG] Après suppression
+[Thu, 29 Aug 19 14:23:19 +0000][WARNING] Ajout (save) d'un utilisateur
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation de création de ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après validation de création de ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant création
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après création
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après ajout/modification
+[Thu, 29 Aug 19 14:23:19 +0000][WARNING] Récupération du premier utilisateur
+[Thu, 29 Aug 19 14:23:19 +0000][WARNING] Modification (save) d'une ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation d'une modification de ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après validation de mise à jour de donnnées
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant mise à jour
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après modification
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après ajout/modification
+[Thu, 29 Aug 19 14:23:19 +0000][WARNING] Modification d'une ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation d'une modification de ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après validation de mise à jour de donnnées
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant mise à jour
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après modification
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après ajout/modification
+[Thu, 29 Aug 19 14:23:19 +0000][WARNING] Création d'un nouvel utilisateur
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Préparation à la sauvegarde
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant validation de création de ligne
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Validation a échoué
+[Thu, 29 Aug 19 14:23:19 +0000][WARNING] Suppression d'un utilisateur
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Avant suppression
+[Thu, 29 Aug 19 14:23:19 +0000][DEBUG] Après suppression

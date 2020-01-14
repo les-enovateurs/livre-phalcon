@@ -1,0 +1,14 @@
+### Création d'un nouvel utilisateur
+
+# curl -i -X POST -d '{"nom":"DOE","prenom":"Conor","email":"conor.doe@les-enovateurs.com", "mot_de_passe":"azert"}' http://127.0.0.1/api/utilisateur
+POST http://localhost/api/utilisateur
+Content-Type: application/x-www-form-urlencoded
+
+{"nom":"DOE","prenom":"Conor","email":"conor.doe@les-enovateurs.com", "mot_de_passe":"azert"}
+
+### Récupération d'un utilisateur
+
+# curl -i -X GET http://127.0.0.1/api/utilisateur/3
+GET http://localhost/api/utilisateur/3
+
+###

@@ -1,0 +1,38 @@
+### Récupération d'un utilisateur
+# curl -i -X GET http://127.0.0.1/api/utilisateur/3
+GET http://127.0.0.1/api/utilisateur/3
+
+<> 2019-10-14T063717.200.json
+
+### Récupération des utilisateurs
+# curl -i -X GET http://127.0.0.1/api/utilisateurs
+GET http://127.0.0.1/api/utilisateurs
+
+<> 2019-10-14T062640.200.json
+
+### Création d'un nouvel utilisateur
+# curl -i -X POST -d '{"nom":"DOE","prenom":"Conor","email":"conor.doe@les-enovateurs.com", "mot_de_passe":"azert"}' http://127.0.0.1/api/utilisateur
+POST http://127.0.0.1/api/utilisateur
+Content-Type: application/x-www-form-urlencoded
+
+{"nom":"DOE","prenom":"Conor","email":"conor.doe@les-enovateurs.com", "mot_de_passe":"azert"}
+
+<> 2019-10-14T063732.500.json
+<> 2019-10-14T062646.200.json
+
+### Modification d'un utilisateur
+# curl -i -X PUT -d '{"nom":"DOE","prenom":"Pauline","email":"pauline.doe@les-enovateurs.com"}' http://127.0.0.1/api/utilisateur/3
+PUT http://127.0.0.1/api/utilisateur/3
+Content-Type: application/x-www-form-urlencoded
+
+{"nom":"DOE","prenom":"Pauline","email":"pauline.doe@les-enovateurs.com"}
+
+<> 2019-10-14T064122.200.json
+
+### Suppression d'un utilisateur
+# curl -i -X DELETE http://127.0.0.1/api/utilisateur/4
+DELETE http://127.0.0.1/api/utilisateur/4
+
+<> 2019-10-14T064148.200.json
+
+###

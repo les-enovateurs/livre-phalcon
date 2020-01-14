@@ -1,0 +1,11 @@
+[Tue, 31 Dec 19 18:27:59 +0000][ERROR] AzeController handler class cannot be loaded
+#0 [internal function]: Phalcon\Mvc\Dispatcher->_throwDispatchException('AzeController h...', 2)
+#1 [internal function]: Phalcon\Dispatcher->dispatch()
+#2 /var/www/html/public/index.php(42): Phalcon\Mvc\Application->handle()
+#3 {main}
+[Tue, 31 Dec 19 18:28:01 +0000][ERROR] une erreur 500
+#0 [internal function]: IndexController->erreurImportanteAction()
+#1 [internal function]: Phalcon\Dispatcher->callActionMethod(Object(IndexController), 'erreurImportant...', Array)
+#2 [internal function]: Phalcon\Dispatcher->dispatch()
+#3 /var/www/html/public/index.php(42): Phalcon\Mvc\Application->handle()
+#4 {main}

@@ -1,0 +1,104 @@
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Avant accès
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Rôle actif : clients
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Contrôleur : clients
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Action : profil
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Après accès
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Rôle actif : clients
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Contrôleur : clients
+[Sat, 24 Aug 19 14:18:00 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:40 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Contrôleur : vendeurs
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Contrôleur : vendeurs
+[Thu, 02 Jan 20 13:19:41 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:42 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Contrôleur : clients
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Contrôleur : clients
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Contrôleur : erreurs
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Action : code401
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Contrôleur : erreurs
+[Thu, 02 Jan 20 13:19:43 +0000][DEBUG] Action : code401
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Action : deconnexion
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Rôle actif : vendeurs
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:45 +0000][DEBUG] Action : deconnexion
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:50 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Contrôleur : clients
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Contrôleur : clients
+[Thu, 02 Jan 20 13:19:51 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:53 +0000][DEBUG] Action : index
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Contrôleur : vendeurs
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Contrôleur : vendeurs
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Action : profil
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Contrôleur : erreurs
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Action : code401
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Contrôleur : erreurs
+[Thu, 02 Jan 20 13:19:54 +0000][DEBUG] Action : code401
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Avant accès
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Action : deconnexion
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Après accès
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Rôle actif : clients
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Contrôleur : index
+[Thu, 02 Jan 20 13:19:55 +0000][DEBUG] Action : deconnexion

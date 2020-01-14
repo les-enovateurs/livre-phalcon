@@ -1,0 +1,1 @@
+<p>Vue inclut : app/views/index/exemple_inclusion.volt</p>

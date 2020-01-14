@@ -1,0 +1,9 @@
+[Wed, 01 Jan 20 21:27:02 +0000][DEBUG] un message avec la fonction log
+[Wed, 01 Jan 20 21:27:02 +0000][DEBUG] un message de type debug
+[Wed, 01 Jan 20 21:27:02 +0000][INFO] un message de type info
+[Wed, 01 Jan 20 21:27:02 +0000][NOTICE] un message de type notice
+[Wed, 01 Jan 20 21:27:02 +0000][WARNING] un message de type warning
+[Wed, 01 Jan 20 21:27:02 +0000][ERROR] un message de type error
+[Wed, 01 Jan 20 21:27:02 +0000][ALERT] un message de type alert
+[Wed, 01 Jan 20 21:27:02 +0000][CRITICAL] un message de type critical
+[Wed, 01 Jan 20 21:27:02 +0000][EMERGENCY] un message de type emergency
